@@ -1,0 +1,1 @@
+Healthcare Appointment Booking is a frontend web application developed using HTML, CSS, and JavaScript for seamless appointment scheduling with healthcare providers. Integrated with EmailJS for confirmation emails, it offers users a responsive design and secure data handling.
