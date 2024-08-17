@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Normal Checkup Details</title>
+    
+
+
+    <link rel="stylesheet" href="normal_checkup.css">
+    <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js">
+</script>
+
+<script type="text/javascript">
+   (function(){
+      emailjs.init("YOUR_PUBLIC_KEY");
+   })();
+</script>
+<script type="text/javascript" src="mail.js"></script>
+</head>
+<body>
+    <h1>Normal Checkup</h1>
+    <p>The Normal Checkup is a comprehensive health examination that aims to assess your overall well-being and detect any potential health issues early on. It includes the following tests:</p>
+    <ul>
+        <li>Blood Pressure Measurement</li>
+        <li>Complete Blood Count (CBC)</li>
+        <li>Lipid Profile (Cholesterol Levels)</li>
+        <li>Blood Glucose (Sugar) Test</li>
+        <li>Liver Function Test (LFT)</li>
+        <li>Kidney Function Test (KFT)</li>
+        <li>Thyroid Function Test</li>
+        <li>Urinalysis</li>
+        <li>X-ray of the Chest</li>
+    </ul>
+    <p>The results of these tests will help your healthcare provider assess your current health status, identify any risk factors, and recommend appropriate lifestyle changes or further investigations if needed. It is recommended to have a Normal Checkup once a year, even if you feel healthy, as early detection of certain conditions can lead to better treatment outcomes.</p>
+    <h2>Cost of Normal Checkup:</h2>
+    <p>The cost of a Normal Checkup can vary based on factors such as location, healthcare provider, and the specific tests included in the package. Generally, the cost can range from $100 to $500 or more. It's important to check with your healthcare provider or the facility where you plan to have the checkup to get an accurate estimate of the cost.</p>
+    <h2>Additional Information:</h2>
+    <ol>
+        <li><strong>Scheduling:</strong> To book a Normal Checkup, you can either contact your primary healthcare provider or a specialized clinic that offers health checkup services. Many hospitals and medical centers have dedicated health checkup packages available for individuals looking to get a comprehensive assessment of their health.</li>
+        <li><strong>Preparation:</strong> Before the checkup, it's advisable to fast for 8-10 hours to ensure accurate results for certain tests like the Blood Glucose (Sugar) Test and Lipid Profile. Your healthcare provider will provide specific instructions on how to prepare for the checkup.</li>
+        <li><strong>Duration:</strong> The Normal Checkup usually takes a few hours to complete, depending on the facility and the number of patients being attended to. You may need to allocate half a day for the examination.</li>
+        <li><strong>Importance of Regular Checkups:</strong> Even if you feel healthy and have no apparent symptoms, regular checkups are essential to monitor your health and identify any potential health issues early on. Early detection of certain conditions can significantly improve treatment outcomes and prevent complications.</li>
+        <li><strong>Follow-up:</strong> After the Normal Checkup, your healthcare provider will review the test results with you. If any abnormalities are detected, they may recommend further investigations, treatment, or lifestyle modifications to address the issues identified during the checkup.</li>
+        <li><strong>Health Insurance Coverage:</strong> Depending on your health insurance policy, some or all of the costs associated with the Normal Checkup may be covered. It's best to check with your insurance provider to understand what is covered and any potential out-of-pocket expenses.</li>
+    </ol>
+    <p>Remember, the cost and specifics of the Normal Checkup can vary, so it's essential to communicate with your healthcare provider to get detailed information about the package and its associated costs. Investing in preventive healthcare through regular checkups is a proactive way to take care of your health and well-being.</p>
+    <button onclick="openAppointmentForm()">Make Appointment</button>
+
+    <div id="appointmentModal" style="display: none;">
+      <center>  <h1 style="color:lightcoral;">FILL THE FORM!!</h1> </center>
+        <center>
+        <form onsubmit="submitAppointmentForm(event)">
+            <label for="name">Name</label>
+            <input type="text" id="name" required>
+
+            <label for="age">Age</label>
+            <input type="number" id="age" required>
+
+            <label for="email">Email</label>
+            <input type="email" id="email" required>
+
+            <label for="appointmentDate">Appointment Date</label>
+            <input type="date" id="appointmentDate" required>
+
+            <label for="checkupType">Checkup Type</label>
+            <input type="text" id="checkupType" value="Normal Checkup" disabled>
+
+            <label for="time">Preferred Time</label>
+            <input type="time" id="time" required>
+
+            <label for="paymentMode">Payment Mode</label>
+            <select id="paymentMode" required>
+                <option value="cash">Cash</option>
+                <option value="credit_card">Credit Card</option>
+                <option value="online_payment">Online Payment</option>
+            </select>
+
+            <input type="submit" value="Submit">
+        </form>
+    </center>
+    </div>
+    <script>
+        // The mail.js code (unchanged)
+        
+        function openAppointmentForm() {
+            // Show the appointment form modal
+            const modal = document.getElementById("appointmentModal");
+            modal.style.display = "block";
+        }
+        
+        function submitAppointmentForm(event) {
+            event.preventDefault();
+        
+            // Retrieve form data
+            const name = document.getElementById("name").value;
+            const age = document.getElementById("age").value;
+            const email = document.getElementById("email").value; // Fetch the email field value
+            const appointmentDate = document.getElementById("appointmentDate").value;
+            const checkupType = document.getElementById("checkupType").value;
+            const time = document.getElementById("time").value;
+            const paymentMode = document.getElementById("paymentMode").value;
+        
+            // Create the form data object
+            const formData = {
+                name: name,
+                age: age,
+                email: email, // Add the email field value to the form data
+                appointmentDate: appointmentDate,
+                checkupType: checkupType,
+                time: time,
+                paymentMode: paymentMode
+            };
+        
+            // Send the form data as an email using the sendEmail function from mail.js
+            sendEmail(formData)
+                .then((response) => {
+                    // Email sent successfully
+                    alert("Appointment successful! Your details have been sent to your email.");
+                })
+                .catch((error) => {
+                    // Failed to send email
+                    alert("Oops! An error occurred while sending the email. Please try again later.");
+                    console.error("Error sending email:", error);
+                });
+        
+            // Hide the appointment form modal after submission
+            const modal = document.getElementById("appointmentModal");
+            modal.style.display = "none";
+        }
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,411 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    width: 100%;
+    height: 100vh;
+}
+
+.samp{
+    height: 15px;
+}
+
+.nav li{
+    list-style-type: none;
+    margin-right: 10px;
+}
+
+.nav ul{
+    display: flex;
+}
+
+.head h1{
+    color: navy;
+}
+
+.head{
+    display: flex;
+    justify-content: space-around;
+    margin-top: 10px;
+}
+
+.make{
+    height: 30px;
+    width: 180px;
+    background-color: #0d6efd;
+    border-radius: 50px;
+    text-align: center;
+    padding-top: 7px;
+}
+
+.make p{
+    color: white;
+}
+
+.intro{
+    height: 85vh;
+    width: 100%;
+    background-image: url("./images/home.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-top: 15px;
+}
+
+.content1{
+    padding: 15px;
+    margin-left: 5%;
+}
+
+.content1 h1{
+    color: navy;
+    margin-top: 10%;
+    font-size: 45px;
+    line-height: 50px;
+}
+
+.content1 p{
+    font-size: 25px;
+    margin-top: 10px;
+    line-height: 25px;
+}
+
+.learn{
+    height: 40px;
+    width: 130px;
+    background-color: #0d6efd;
+    border-radius: 50px;
+    text-align: center;
+    padding-top: 10px;
+    margin-left: 6%;
+    color: white;
+    margin-top: 15px;
+}
+
+.test{
+    width: 100%;
+    height: 55vh;
+    margin-top: 15px;
+    padding-top: 15px;
+}
+
+.container1{
+    display: grid;
+    grid-template-columns: 23% 23% 23% 23%;
+    gap: 20px;
+    justify-content: center;
+    margin-left: 15px;
+    margin-right: 15px;
+    height: 45vh;
+}
+
+.container1 .child1, .container1 .child2, .container1 .child3, .container1 .child4, .container1 .child5{
+    padding: 30px;
+    background-color: whitesmoke;
+    border-radius: 20px;
+}
+
+.hi{
+    font-size: 50px;
+}
+
+.container1 h3{
+    padding-top: 10px;
+    margin-top: 10px;
+    font-size: 20px;
+}
+
+.container1 p{
+    padding-top: 10px;
+    margin-top: 10px;
+    font-size: 18px;
+}
+
+.video h2{
+    text-align: center;
+    font-size: 35px;
+    color: #2f61b6;
+}
+
+.video p{
+    text-align: center;
+    font-size: 18px;
+    margin-top: 10px;
+    padding-top: 10px;
+}
+
+.vgrid{
+    display: grid;
+    grid-template-columns: 30% 63%;
+    justify-content: center;
+    width: 100%;
+    height: 60vh;
+   
+    padding-top: 15px;
+    margin-top: 15px;
+    column-gap: 15px;
+}
+
+.vgrid1{
+   
+    background-image: url("./images/about.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100%;
+}
+
+
+
+.ic1 h1 {
+   font-size: 18px;
+   padding-left: 50px;
+   margin-left: 50px;
+   margin-top : 50px;
+}
+
+.ic1 p
+{
+ font-size: 17px;
+ margin-left:26px;
+ padding: 10px;
+}
+
+
+.ic2 h1 {
+    font-size: 18px;
+    padding-left: 50px;
+    margin-left: 50px;
+    margin-top : 50px;
+ }
+ 
+ .ic2 p
+ {
+  font-size: 17px;
+  margin-left: 16px;
+  padding: 10px;
+ }
+ 
+ .ic3 h1 {
+    font-size: 18px;
+    padding-left: 50px;
+    margin-left: 50px;
+    margin-top : 50px;
+ }
+ 
+ .ic3 p
+ {
+  font-size: 17px;
+  margin-left: 16px;
+  padding: 10px;
+ }
+
+ /* .profile
+ {
+    background-color: aqua;
+    width:100%;
+    height:90vh;
+    margin-top: 50px;
+    padding-top: 30px;
+ }
+ .profile h1
+ {
+    text-align: center;
+    font-size: 30px;
+    
+ }
+
+ .pgrid
+ {
+    background-color: aquamarine;
+    grid-template-columns: 50% 50%;
+    padding: 40px;
+    margin-top: 30px;
+    height:70vh;
+    margin: 50px;
+    column-gap: 40px;
+    
+ }
+
+ .pchild1
+ {
+    background-color: aqua;
+ } */
+
+
+ 
+ .technologists {
+    text-align: center;
+    padding: 30px;
+    padding-left: 170px;
+    padding-right: 170px;
+}
+
+.technologists h2 {
+    font-size: 28px;
+    color: #2f61b6;
+    margin-bottom: 20px;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    
+    gap: 30px;
+}
+
+.technologist {
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.technologist img {
+    width: 150px; /* Adjust the width as needed */
+    height: 150px; /* Adjust the height as needed */
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.technologist h3 {
+    font-size: 20px;
+    color: #2f61b6;
+    margin-bottom: 10px;
+}
+
+.technologist p {
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+}
+
+.social-icons .round-icon {
+    width: 40px; /* Adjust the size of the round div */
+    height: 40px; /* Adjust the size of the round div */
+    background-color: #2f61b6;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 5px;
+}
+
+.social-icons .round-icon a {
+    color: white;
+    font-size: 18px;
+    display: inline-block;
+}
+
+.social-icons .round-icon:hover {
+    background-color: #1a406e;
+}
+
+/* Styles for the contact section */
+/* Styles for the container */
+.container9 {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  /* Styles for the section title */
+  .section-title {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+  
+  .section-title h2 {
+    font-size: 36px;
+    font-weight: bold;
+    color:#2f61b6;
+  }
+  
+  .section-title p {
+    font-size: 18px;
+    margin-top: 10px;
+  }
+  
+  /* Styles for the map */
+  .map-container {
+    position: relative;
+    overflow: hidden;
+    padding-top: 56.25%; /* 16:9 aspect ratio (height:width) */
+  }
+  
+  .map-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+  }
+  
+  /* Styles for the contact information section */
+/* Styles for the footer container */
+footer {
+    background-color: #f9f9f9;
+    padding: 30px 0;
+  }
+  
+  /* Styles for the contact information section */
+  .col-lg-4 {
+    text-align: center;
+    color: white;
+  }
+  
+  .col-lg-4 .info {
+    background-color:#2f61b6;
+    padding: 20px;
+    
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  }
+  
+  .col-lg-4 .address,
+  .col-lg-4 .email,
+  .col-lg-4 .phone {
+    margin-bottom: 20px;
+  }
+  
+  .col-lg-4 .address i,
+  .col-lg-4 .email i,
+  .col-lg-4 .phone i {
+    font-size: 24px;
+    margin-right: 10px;
+    vertical-align: middle; /* Align icons vertically in the middle */
+  }
+  
+  .col-lg-4 .address p,
+  .col-lg-4 .email p,
+  .col-lg-4 .phone p {
+    font-size: 16px;
+    display: inline; /* Display text inline with the icons */
+    vertical-align: middle; /* Align text vertically in the middle */
+  }
+  
+
+
+
+  /* Add a CSS animation to the header section */
+.head h1 {
+    animation: fadeInDown 1s ease-in-out;
+  }
+  
+  @keyframes fadeInDown {
+    0% {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  

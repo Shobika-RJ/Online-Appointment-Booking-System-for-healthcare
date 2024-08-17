@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pro Healthcare Login</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+   background-image: url("./images/login.jpg");
+   background-size: cover;
+   background-repeat: no-repeat;
+   flex-direction: column;
+  }
+
+  .form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #fff;
+    /*border-radius: 8px;*/
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .form {
+    width: 400px;
+    padding: 30px;
+    border-radius: 8px;
+  }
+
+  .form h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #333;
+  }
+
+  .form input[type="text"],
+  .form input[type="password"] {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    color: #555;
+    transition: border-color 0.3s;
+  }
+
+  .form input[type="text"]:focus,
+  .form input[type="password"]:focus {
+    border-color:  #2ba5aa;
+  }
+
+  .form button {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    background-color: #2ba5aa;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+
+  .form button:hover {
+    background-color: #8ad6d3;
+  }
+
+  .signup-link {
+    margin-top: 15px;
+    color: #333;
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.3s;
+  }
+
+  .signup-link:hover {
+    color:#2ba5aa;
+  }
+  .hidden {
+    display: none;
+  }
+  .form h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #333;
+    font-family: "Arial", sans-serif; /* Change the font style */
+  }
+  .header {
+    text-align: center;
+    padding: 20px;
+    background-color: #2ba5aa;
+    color: #fff;
+    width:420px
+    
+  }
+</style>
+</head>
+<body>
+  <div class="header">
+    <h1>Welcome to Praroz Healthcare</h1>
+</div>
+    <div class="form-container">
+        <div class="form" id="loginForm">
+          <h2>Login</h2>
+          <form>
+            <input type="text" placeholder="Username or Email">
+            <input type="password" placeholder="Password">
+            <button type="submit">Login</button>
+          </form><br>
+          <center><a href="#" id="signupLink" class="signup-link">Don't have an account? Sign Up</a></center>
+        </div>
+        
+        <div class="form hidden" id="signupForm">
+          <h2>Create an Account</h2>
+          <form>
+            <input type="text" placeholder="Full Name">
+            <input type="text" placeholder="Username">
+            <input type="password" placeholder="Password">
+            <button type="submit">Sign Up</button>
+          </form><br>
+         <center><a href="#" id="loginLink" class="signup-link">Already have an account? Login</a></center>
+        </div>
+      </div>
+      
+      <script>
+        const loginForm = document.getElementById("loginForm");
+        const signupForm = document.getElementById("signupForm");
+        const signupLink = document.getElementById("signupLink");
+        const loginLink = document.getElementById("loginLink");
+      
+        signupLink.addEventListener("click", () => {
+          loginForm.classList.add("hidden");
+          signupForm.classList.remove("hidden");
+        });
+      
+        loginLink.addEventListener("click", () => {
+          signupForm.classList.add("hidden");
+          loginForm.classList.remove("hidden");
+        });
+      
+        loginForm.addEventListener("submit", (event) => {
+          event.preventDefault();
+          // Perform login validation here
+          // If login is successful, redirect to home1.html
+          window.location.href = "home1.html";
+        });
+      
+        signupForm.addEventListener("submit", (event) => {
+          event.preventDefault();
+          // Perform signup validation here
+          // If signup is successful, redirect to home1.html
+          window.location.href = "home1.html";
+        });
+      </script>
+      </body>
+</html>

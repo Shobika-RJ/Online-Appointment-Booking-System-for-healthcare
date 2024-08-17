@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Blood Test Information</title>
+    <link rel="stylesheet" href="mri.css">
+    <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js">
+</script>
+
+<script type="text/javascript">
+   (function(){
+      emailjs.init("YOUR_PUBLIC_KEY");
+   })();
+</script>
+<script type="text/javascript" src="mail.js"></script>
+</head>
+</head>
+<body>
+    
+    <h2>Understanding MRI Scans</h2>
+    <p>Magnetic Resonance Imaging (MRI) is a non-invasive medical imaging technique that uses powerful magnets and radio waves to create detailed images of internal structures, including:</p>
+    <ul>
+        <li>Brain and nervous system</li>
+        <li>Muscles and joints</li>
+        <li>Abdominal organs</li>
+        <li>Spine and spinal cord</li>
+        <li>Blood vessels</li>
+        <li>And more</li>
+    </ul>
+    <p>MRI scans provide essential diagnostic insights, aiding in the detection and evaluation of various medical conditions.</p>
+    <h2>Benefits of MRI Scans</h2>
+    <p>MRI scans offer precise visualization, enabling early detection and accurate assessment of medical conditions. The non-ionizing radiation makes it a safe option for diagnosing a range of health issues.</p>
+    <p>If your healthcare provider has recommended an MRI scan, understanding the procedure and its significance can contribute to informed decision-making.</p>
+   
+
+    <button onclick="openAppointmentForm()">Make Appointment</button>
+
+
+
+    <div id="appointmentModal" style="display: none;">
+        <center>  <h1 style="color:lightcoral;">FILL THE FORM!!</h1> </center>
+          <center>
+          <form onsubmit="submitAppointmentForm(event)">
+              <label for="name">Name</label>
+              <input type="text" id="name" required>
+  
+              <label for="age">Age</label>
+              <input type="number" id="age" required>
+  
+              <label for="email">Email</label>
+              <input type="email" id="email" required>
+  
+              <label for="appointmentDate">Appointment Date</label>
+              <input type="date" id="appointmentDate" required>
+  
+              <label for="checkupType">Checkup Type</label>
+              <input type="text" id="checkupType" value="MRI Scan" disabled>
+  
+              <label for="time">Preferred Time</label>
+              <input type="time" id="time" required>
+  
+              <label for="paymentMode">Payment Mode</label>
+              <select id="paymentMode" required>
+                  <option value="cash">Cash</option>
+                  <option value="credit_card">Credit Card</option>
+                  <option value="online_payment">Online Payment</option>
+              </select>
+  
+              <input type="submit" value="Submit">
+          </form>
+      </center>
+      </div>
+      <script>
+        // The mail.js code (unchanged)
+        
+        function openAppointmentForm() {
+            // Show the appointment form modal
+            const modal = document.getElementById("appointmentModal");
+            modal.style.display = "block";
+
+             // Set the minimum date for the appointment date input to the current date
+        const today = new Date();
+        const appointmentDateInput = document.getElementById("appointmentDate");
+        appointmentDateInput.min = today.toISOString().split("T")[0];
+
+        
+        }
+        
+        function submitAppointmentForm(event) {
+            event.preventDefault();
+        
+            // Retrieve form data
+            const name = document.getElementById("name").value;
+            const age = document.getElementById("age").value;
+            const email = document.getElementById("email").value; // Fetch the email field value
+            const appointmentDate = document.getElementById("appointmentDate").value;
+            const checkupType = document.getElementById("checkupType").value;
+            const time = document.getElementById("time").value;
+            const paymentMode = document.getElementById("paymentMode").value;
+        
+            // Create the form data object
+            const formData = {
+                name: name,
+                age: age,
+                email: email, // Add the email field value to the form data
+                appointmentDate: appointmentDate,
+                checkupType: checkupType,
+                time: time,
+                paymentMode: paymentMode
+            };
+        
+            // Send the form data as an email using the sendEmail function from mail.js
+            sendEmail(formData)
+                .then((response) => {
+                    // Email sent successfully
+                    alert("Appointment successful! Your details have been sent to your email.");
+                })
+                .catch((error) => {
+                    // Failed to send email
+                    alert("Oops! An error occurred while sending the email. Please try again later.");
+                    console.error("Error sending email:", error);
+                });
+        
+            // Hide the appointment form modal after submission
+            const modal = document.getElementById("appointmentModal");
+            modal.style.display = "none";
+        }
+    </script>
+</body>
+</html>

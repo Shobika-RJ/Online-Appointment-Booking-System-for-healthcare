@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Blood Test Information</title>
+    <link rel="stylesheet" href="bloodtest.css">
+    <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js">
+</script>
+
+<script type="text/javascript">
+   (function(){
+      emailjs.init("YOUR_PUBLIC_KEY");
+   })();
+</script>
+<script type="text/javascript" src="mail.js"></script>
+</head>
+</head>
+<body>
+    
+    <h2>What are Blood Tests?</h2>
+    <p>Blood tests are medical procedures that involve drawing a small sample of blood from your body to analyze various components, such as:</p>
+    <ul>
+        <li>Red blood cells (RBCs)</li>
+        <li>White blood cells (WBCs)</li>
+        <li>Platelets</li>
+        <li>Hemoglobin</li>
+        <li>Cholesterol levels</li>
+        <li>Blood glucose (sugar) levels</li>
+        <li>Liver and kidney function</li>
+        <li>And more</li>
+    </ul>
+    <p>These tests provide valuable insights into your overall health, aid in diagnosing medical conditions, and help your healthcare provider make informed decisions about your treatment and care.</p>
+    <h2>Common Blood Tests</h2>
+    <p>Below are some of the most common blood tests:</p>
+    <ul>
+        <li><strong>Complete Blood Count (CBC):</strong> Measures the number and types of blood cells to assess overall health and detect conditions like anemia and infection.</li>
+        <li><strong>Lipid Profile:</strong> Measures cholesterol levels to evaluate heart health and assess the risk of cardiovascular diseases.</li>
+        <li><strong>Blood Glucose Test:</strong> Measures the amount of sugar in your blood to check for diabetes or monitor diabetes management.</li>
+        <li><strong>Liver Function Test (LFT):</strong> Evaluates liver health by measuring enzyme levels and other substances in the blood.</li>
+        <li><strong>Kidney Function Test (KFT):</strong> Assesses kidney health by measuring the levels of creatinine, blood urea nitrogen (BUN), and other markers.</li>
+        <li><strong>Thyroid Function Test:</strong> Measures thyroid hormone levels to detect thyroid disorders.</li>
+        <li><strong>Iron Studies:</strong> Evaluates iron levels in the blood to diagnose anemia or iron-related conditions.</li>
+    </ul>
+    <p>These tests are typically ordered by your doctor based on your medical history, symptoms, and risk factors.</p>
+    <h2>Importance of Blood Tests</h2>
+    <p>Blood tests play a crucial role in preventive healthcare, early diagnosis of diseases, and monitoring ongoing treatments. Regular blood tests can help detect potential health issues before they become severe, allowing for timely interventions and better health outcomes.</p>
+    <p>If your doctor has recommended a blood test for you, make sure to follow any fasting or preparation instructions provided to ensure accurate results.</p>
+    <p>For more specific information about each blood test, its preparation, and what the results may indicate, consult your healthcare provider.</p>
+    <p>Remember, blood tests are an essential part of maintaining your health, and they contribute to a proactive approach to well-being.</p>
+
+    <button onclick="openAppointmentForm()">Make Appointment</button>
+
+
+
+    <div id="appointmentModal" style="display: none;">
+        <center>  <h1 style="color:lightcoral;">FILL THE FORM!!</h1> </center>
+          <center>
+          <form onsubmit="submitAppointmentForm(event)">
+              <label for="name">Name</label>
+              <input type="text" id="name" required>
+  
+              <label for="age">Age</label>
+              <input type="number" id="age" required>
+  
+              <label for="email">Email</label>
+              <input type="email" id="email" required>
+  
+              <label for="appointmentDate">Appointment Date</label>
+              <input type="date" id="appointmentDate" required>
+  
+              <label for="checkupType">Checkup Type</label>
+              <input type="text" id="checkupType" value="Blood test" disabled>
+  
+              <label for="time">Preferred Time</label>
+              <input type="time" id="time" required>
+  
+              <label for="paymentMode">Payment Mode</label>
+              <select id="paymentMode" required>
+                  <option value="cash">Cash</option>
+                  <option value="credit_card">Credit Card</option>
+                  <option value="online_payment">Online Payment</option>
+              </select>
+  
+              <input type="submit" value="Submit">
+          </form>
+      </center>
+      </div>
+      <script>
+        // The mail.js code (unchanged)
+        
+        function openAppointmentForm() {
+            // Show the appointment form modal
+            const modal = document.getElementById("appointmentModal");
+            modal.style.display = "block";
+
+             // Set the minimum date for the appointment date input to the current date
+        const today = new Date();
+        const appointmentDateInput = document.getElementById("appointmentDate");
+        appointmentDateInput.min = today.toISOString().split("T")[0];
+
+        
+        }
+        
+        function submitAppointmentForm(event) {
+            event.preventDefault();
+        
+            // Retrieve form data
+            const name = document.getElementById("name").value;
+            const age = document.getElementById("age").value;
+            const email = document.getElementById("email").value; // Fetch the email field value
+            const appointmentDate = document.getElementById("appointmentDate").value;
+            const checkupType = document.getElementById("checkupType").value;
+            const time = document.getElementById("time").value;
+            const paymentMode = document.getElementById("paymentMode").value;
+        
+            // Create the form data object
+            const formData = {
+                name: name,
+                age: age,
+                email: email, // Add the email field value to the form data
+                appointmentDate: appointmentDate,
+                checkupType: checkupType,
+                time: time,
+                paymentMode: paymentMode
+            };
+        
+            // Send the form data as an email using the sendEmail function from mail.js
+            sendEmail(formData)
+                .then((response) => {
+                    // Email sent successfully
+                    alert("Appointment successful! Your details have been sent to your email.");
+                })
+                .catch((error) => {
+                    // Failed to send email
+                    alert("Oops! An error occurred while sending the email. Please try again later.");
+                    console.error("Error sending email:", error);
+                });
+        
+            // Hide the appointment form modal after submission
+            const modal = document.getElementById("appointmentModal");
+            modal.style.display = "none";
+        }
+    </script>
+</body>
+</html>
